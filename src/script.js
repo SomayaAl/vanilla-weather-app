@@ -61,3 +61,9 @@ let apiKey = "7d81cb66d2a78969cfec2f704335508f";
 let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
 
 axios.get(apiUrl).then(displayTemperature);
+
+function weatherForecast(response) {
+  let city = "Laurel";
+  let key = "7d81cb66d2a78969cfec2f704335508f";
+  let url = `api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${key}`;
+}
