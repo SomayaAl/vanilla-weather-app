@@ -16,36 +16,50 @@
       src="https://kit.fontawesome.com/16c6c84f23.js"
       crossorigin="anonymous"
     ></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <title>Weather App</title>
   </head>
   <body>
     <div class="container">
-      <div class="weather-app">
-        <div class="row">
-          <div class="col-6"><h1>Washington DC</h1></div>
-          <div class="col-6">
-            <h2>☀️ 65°F | °C</h2>
+      <div class="weather-app-wrap">
+        <div class="weather-app">
+          <div class="row">
+            <div class="col-6"><h1 id="city"></h1></div>
+            <div class="col-6">
+              <h2>
+                ☀️<span id="temp"></span><span class="units-temp">°F | °C</span>
+              </h2>
+            </div>
+            <ul>
+              <li><h3 id="date-time"></h3></li>
+              <li>
+                <span class="weather-description" id="description"></span>
+              </li>
+              <li>
+                High: <span id="high-temp"></span
+                ><span class="units">°F | °C</span>
+              </li>
+              <li>
+                Low: <span id="low-temp"></span
+                ><span class="units">°F | °C</span>
+              </li>
+            </ul>
+          </div>
+          <div class="row">
+            <div class="col-6">Sunrise: <span id="sunrise"></span></div>
+            <div class="col-6">Humidity: <span id="humidity"></span></div>
+            <div class="col-6">Sunset: <span id="sunset"></span></div>
+            <div class="col-6">Wind: <span id="wind"></span> mph</div>
+          </div>
         </div>
-        <ul>
-          <li><h3>Friday 11:00</h3></li>
-          <li>Clear</li>
-          <li>High: 70°F | °C</li>
-          <li>Low: 40°F | °C</li>
-        </ul>
-        <div class="col-6">
-            Sunrise: 6:29AM
-        </div>
-        <div class="col-6">
-            Humidity: 18%
-        </div>
-        <div class="col-6">
-            Sunset: 7:44PM
-        </div>
-        <div class="col-6">
-            Wind: 5mph
-        </div>
-        <small> <a href="https://github.com/SomayaAl/vanilla-weather-app" target="blank"
-          >Open-source code</a> by Somaya Albadawi</small>
+        <small>
+          <a
+            href="https://github.com/SomayaAl/vanilla-weather-app"
+            target="blank"
+            >Open-source code</a
+          >
+          by Somaya Albadawi</small
+        >
       </div>
     </div>
     <script src="src/script.js"></script>
