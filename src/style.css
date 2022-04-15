@@ -1,0 +1,11 @@
+.weather-app {
+  width: 700px;
+  margin: 30px auto;
+  padding: 20px;
+  border: 1px solid blue;
+  border-radius: 20px;
+}
+
+li {
+  list-style: none;
+}
