@@ -13,29 +13,35 @@ body {
   border-radius: 20px;
 }
 
-h1 {
-  line-height: 35px;
-}
-
-h2 {
+#city {
   line-height: 35px;
   font-size: 40px;
+}
+
+#temp {
+  line-height: 35px;
+  font-size: 40px;
+}
+
+#date-time {
+  font-size: 22px;
 }
 
 li {
   list-style: none;
   margin: 0;
   padding: 0;
+  text-transform: capitalize;
 }
 
-.weather-description {
-  font-size: 25px;
+#weather-description {
+  font-size: 18px;
 }
 
 .units-temp {
   position: relative;
   font-size: 15px;
-  top: -12px;
+  top: -17px;
 }
 
 .units {
