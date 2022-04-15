@@ -49,3 +49,7 @@ li {
   font-size: 11px;
   top: -4px;
 }
+
+#weather-forecast {
+  text-align: center;
+}
