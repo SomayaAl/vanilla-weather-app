@@ -1,6 +1,6 @@
 html,
 body {
-  background-color: whitesmoke;
+  background-color: white;
 }
 .weather-app-wrap {
   width: 700px;
@@ -8,23 +8,24 @@ body {
 }
 
 .weather-app {
-  padding: 60px;
+  padding: 100px;
   border: 1px solid #0000ff;
   border-radius: 20px;
 }
 
 #city {
-  line-height: 35px;
-  font-size: 40px;
+  line-height: 100px;
+  font-size: 35px;
 }
 
 #temp {
-  line-height: 35px;
-  font-size: 40px;
+  line-height: 100px;
+  font-size: 35px;
 }
 
 #date-time {
-  font-size: 22px;
+  font-size: 27px;
+  margin-top: -25px;
 }
 
 li {
@@ -35,7 +36,8 @@ li {
 }
 
 #weather-description {
-  font-size: 18px;
+  font-size: 24px;
+  margin-bottom: 40px;
 }
 
 .units-temp {
@@ -55,16 +57,32 @@ li {
 }
 
 #current-location-button {
+  position: relative;
   display: block;
-  margin: o auto;
-  padding: 0 auto;
+  margin: 0 auto;
+  padding: 10px;
   background-color: white;
   border: none;
-  top: 30px;
+  top: -7px;
+}
+
+#city-text-input {
+  padding: 10px;
+  margin: 0 auto;
 }
 
 #icon {
   position: relative;
   top: -10px;
   left: -10px;
+}
+
+.weather-icon {
+  position: relative;
+  left: 320px;
+  top: -220px;
+}
+
+#location-dot {
+  font-size: 35px;
 }
