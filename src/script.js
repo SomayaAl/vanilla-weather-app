@@ -62,14 +62,20 @@ function displayTemperature(response) {
   iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 
-let city = "Laurel";
-let apiKey = "7d81cb66d2a78969cfec2f704335508f";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
-
-axios.get(apiUrl).then(displayTemperature);
-
-function weatherForecast(response) {
-  let city = "Laurel";
-  let key = "7d81cb66d2a78969cfec2f704335508f";
-  let url = `api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${key}`;
+function handleSubmit(event) {
+  event.preventDefault();
+  let cityInputElement = document.querySelector("#city-text-input");
+  search(cityInputElement.value);
 }
+
+function search(city) {
+  let apiKey = "7d81cb66d2a78969cfec2f704335508f";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
+
+  axios.get(apiUrl).then(displayTemperature);
+}
+
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", handleSubmit);
+
+search("Washington D.C.");
