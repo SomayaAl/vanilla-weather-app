@@ -86,3 +86,15 @@ li {
 #location-dot {
   font-size: 35px;
 }
+
+#farhenheit-link .active {
+  text-decoration: none;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
