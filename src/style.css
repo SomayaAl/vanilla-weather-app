@@ -94,3 +94,7 @@ a:link {
 a:hover {
   text-decoration: none;
 }
+
+#weather-forecast {
+  text-align: center;
+}
