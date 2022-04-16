@@ -8,7 +8,7 @@ body {
 }
 
 .weather-app {
-  padding: 30px 30px;
+  padding: 60px;
   border: 1px solid #0000ff;
   border-radius: 20px;
 }
@@ -50,6 +50,21 @@ li {
   top: -4px;
 }
 
-#weather-forecast {
-  text-align: center;
+#cit-text-input {
+  padding: 10px;
+}
+
+#current-location-button {
+  display: block;
+  margin: o auto;
+  padding: 0 auto;
+  background-color: white;
+  border: none;
+  top: 30px;
+}
+
+#icon {
+  position: relative;
+  top: -10px;
+  left: -10px;
 }

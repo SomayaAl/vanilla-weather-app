@@ -23,13 +23,29 @@
     <div class="container">
       <div class="weather-app-wrap">
         <div class="weather-app">
+            <form id="search-form">
+                <div class="row">
+                <div class="col-7"> 
+                <input type="search" placeholder="Enter a city" class="form-control" id="cit-text-input" >
+                </div>
+                <div class="col-3">
+                    <input class="form-control form-control-lg"
+                    type="submit"
+                    value="Search"
+                    id="search-button" />
+                </div>
+                <div class="col-6">
+                    <button class="btn btn-link" id="current-location-button"> <i class="fa-solid fa-location-dot"></i> </button>
+                </div>
+                </div>
+            </form>
           <div class="row">
-            <div class="col-6"><h1 id="city"></h1></div>
             <div class="col-6">
-              <h2>
-                ☀️<span id="temp"></span><span class="units-temp">°F | °C</span>
-              </h2>
+                <div class = "float-right"><h1 id="city"></h1></div>
             </div>
+            <div class="col-6">
+              <div class="weather-icon"><img src="" id="icon" width=80 /><span id="temp"></span><span class="units-temp">°F | °C</span></div>
+              </div>
             <ul>
               <li>
                 <h3 id="date-time"></h3>
@@ -46,28 +62,6 @@
                 ><span class="units">°F | °C</span>
               </li>
             </ul>
-          </div>
-          <div class="row" id="weather-forecast">
-            <div class="col" id="first-day">Monday
-                <div id="first-day-emoji">☀️</div>
-                <div id="first-day-temp"><span class="units">°F | °C</span></div>
-            </div>
-            <div class="col" id="second-day">Tuesday
-                <div id="second-day-emoji">☁️</div>
-                <div id="second-day-temp"><span class="units">°F | °C</span></div>
-            </div>
-            <div class="col" id="third-day">Wednesday
-                <div id="third-day-emoji">🌤</div>
-                <div id="third-day-temp"><span class="units">°F | °C</span></div>
-            </div>
-            <div class="col" id="fourth-day">Thursday
-                <div id="fourth-day-emoji">🌧</div>
-                <div id="fourth-day-temp"><span class="units">°F | °C</span></div>
-            </div>
-            <div class="col" id="fifth-day">Friday
-                <div id="fifth-day-emoji">☁️</div>
-                <div id="fifth-day-temp"><span class="units">°F | °C</span></div>
-            </div>
           </div>
         </br>
           <div class="row">
