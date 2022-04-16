@@ -109,10 +109,10 @@ function displayForecast(response) {
             <div class="weather-forecast-temperature">
                 <span class="weather-forecast-temp-max">${Math.round(
                   forecastDay.temp.max
-                )}°<span class="units"></span></span>
+                )}°<span class="units">F</span></span>
                 <span class="weather-forecast-temp-min">${Math.round(
                   forecastDay.temp.min
-                )}°<span class="units"></span></span>
+                )}°<span class="units">F</span></span>
                  
              </div>
         </div>`;
@@ -157,6 +157,20 @@ function displayFahrenheitTemperature(event) {
 }
 
 let fahrenheitTemperature = null;
+
+function searchLocation(position) {
+  let apiKey = "7d81cb66d2a78969cfec2f704335508f";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=imperial`;
+  axios.get(apiUrl).then(displayTemperature);
+}
+
+function getCurrentLocation(event) {
+  event.preventDefault();
+  navigator.geolocation.getCurrentPosition(searchLocation);
+}
+
+let currentButton = document.querySelector("#current-location-button");
+currentButton.addEventListener("click", getCurrentLocation);
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
