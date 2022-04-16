@@ -43,7 +43,7 @@ li {
 .units-temp {
   position: relative;
   font-size: 15px;
-  top: -17px;
+  top: -13px;
 }
 
 .units {
@@ -85,10 +85,6 @@ li {
 
 #location-dot {
   font-size: 35px;
-}
-
-#farhenheit-link .active {
-  text-decoration: none;
 }
 
 a:link {
