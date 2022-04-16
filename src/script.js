@@ -45,8 +45,10 @@ function displayTemperature(response) {
   let sunsetElement = document.querySelector("#sunset");
   let iconElement = document.querySelector("#icon");
 
+  fahrenheitTemperature = Math.round(response.data.main.temp);
+
   cityElement.innerHTML = response.data.name;
-  temperatureElement.innerHTML = Math.round(response.data.main.temp);
+  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
   descriptionElement.innerHTML = response.data.weather[0].description;
   highElement.innerHTML = Math.round(response.data.main.temp_max);
   lowElement.innerHTML = Math.round(response.data.main.temp_min);
@@ -75,7 +77,36 @@ function search(city) {
   axios.get(apiUrl).then(displayTemperature);
 }
 
+function displayCelsiusTemperature(event) {
+  event.preventDefault();
+
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
+
+  let celsiusTemperature = ((fahrenheitTemperature - 32) * 5) / 9;
+  let temperatureElement = document.querySelector("#temp");
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+}
+
+function displayFahrenheitTemperature(event) {
+  event.preventDefault();
+
+  fahrenheitLink.classList.add("active");
+  celsiusLink.classList.remove("active");
+
+  let temperatureElement = document.querySelector("#temp");
+  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+}
+
+let fahrenheitTemperature = null;
+
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
+
+let fahrenheitLink = document.querySelector("#farhenheit-link");
+fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", displayCelsiusTemperature);
 
 search("Washington D.C.");
