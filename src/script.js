@@ -88,6 +88,50 @@ function displayCelsiusTemperature(event) {
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
 }
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  let forecastHTML = `<div class="row">`;
+  forecastHTML =
+    forecastHTML +
+    `
+         <div class="col">
+            <div class="weather-forecast-date">Monday</div> 
+            <img src="http://openweathermap.org/img/wn/10d@2x.png" id="icon" width="60" />
+            <div class="weather-forecast-temperature">
+                <span class="weather-forecast-temp-max">75</span>
+                <span class="weather-forecast-temp-min">18</span>
+                 <span class="units">°F | °C</span>
+             </div>
+        </div>`;
+  forecastHTML =
+    forecastHTML +
+    `
+         <div class="col">
+            <div class="weather-forecast-date">Monday</div> 
+            <img src="http://openweathermap.org/img/wn/10d@2x.png" id="icon" width="60" />
+            <div class="weather-forecast-temperature">
+                <span class="weather-forecast-temp-max">75</span>
+                <span class="weather-forecast-temp-min">18</span>
+                 <span class="units">°F | °C</span>
+             </div>
+        </div>`;
+  forecastHTML =
+    forecastHTML +
+    `
+         <div class="col">
+            <div class="weather-forecast-date">Monday</div> 
+            <img src="http://openweathermap.org/img/wn/10d@2x.png" id="icon" width="60" />
+            <div class="weather-forecast-temperature">
+                <span class="weather-forecast-temp-max">75</span>
+                <span class="weather-forecast-temp-min">18</span>
+                 <span class="units">°F | °C</span>
+             </div>
+        </div>`;
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
 function displayFahrenheitTemperature(event) {
   event.preventDefault();
 
@@ -110,3 +154,4 @@ let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsiusTemperature);
 
 search("Washington D.C.");
+displayForecast();
