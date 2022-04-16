@@ -98,3 +98,7 @@ a:hover {
 #weather-forecast {
   text-align: center;
 }
+
+.weather-forecast-temp-min {
+  opacity: 0.6;
+}
