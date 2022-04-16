@@ -66,10 +66,60 @@ function displayTemperature(response) {
   getForecast(response.data.coord);
 }
 
+function formatForecastDate(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+
+  return days[day];
+}
+
 function getForecast(coordinates) {
   let apiKey = "7d81cb66d2a78969cfec2f704335508f";
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=imperial`;
   axios.get(apiUrl).then(displayForecast);
+}
+
+function displayForecast(response) {
+  let forecast = response.data.daily;
+  let forecastElement = document.querySelector("#forecast");
+
+  let forecastHTML = `<div class="row">`;
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 5) {
+      forecastHTML =
+        forecastHTML +
+        `
+         <div class="col">
+            <div class="weather-forecast-date">${formatForecastDate(
+              forecastDay.dt
+            )}</div> 
+            <img src="http://openweathermap.org/img/wn/${
+              forecastDay.weather[0].icon
+            }@2x.png" id="forecast-icon" width="60" />
+            <div class="weather-forecast-temperature">
+                <span class="weather-forecast-temp-max">${Math.round(
+                  forecastDay.temp.max
+                )}°<span class="units"></span></span>
+                <span class="weather-forecast-temp-min">${Math.round(
+                  forecastDay.temp.min
+                )}°<span class="units"></span></span>
+                 
+             </div>
+        </div>`;
+    }
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
 }
 
 function handleSubmit(event) {
@@ -96,53 +146,6 @@ function displayCelsiusTemperature(event) {
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
 }
 
-function displayForecast(response) {
-  let forecastElement = document.querySelector("#forecast");
-
-  let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday"];
-  days.forEach(function (day) {
-    let forecastHTML = `<div class="row">`;
-    forecastHTML =
-      forecastHTML +
-      `
-         <div class="col">
-            <div class="weather-forecast-date">${day}</div> 
-            <img src="http://openweathermap.org/img/wn/10d@2x.png" id="icon" width="60" />
-            <div class="weather-forecast-temperature">
-                <span class="weather-forecast-temp-max">75</span>
-                <span class="weather-forecast-temp-min">18</span>
-                 <span class="units">°F | °C</span>
-             </div>
-        </div>`;
-    forecastHTML =
-      forecastHTML +
-      `
-         <div class="col">
-            <div class="weather-forecast-date">Monday</div> 
-            <img src="http://openweathermap.org/img/wn/10d@2x.png" id="icon" width="60" />
-            <div class="weather-forecast-temperature">
-                <span class="weather-forecast-temp-max">75</span>
-                <span class="weather-forecast-temp-min">18</span>
-                 <span class="units">°F | °C</span>
-             </div>
-        </div>`;
-    forecastHTML =
-      forecastHTML +
-      `
-         <div class="col">
-            <div class="weather-forecast-date">Monday</div> 
-            <img src="http://openweathermap.org/img/wn/10d@2x.png" id="icon" width="60" />
-            <div class="weather-forecast-temperature">
-                <span class="weather-forecast-temp-max">75</span>
-                <span class="weather-forecast-temp-min">18</span>
-                 <span class="units">°F | °C</span>
-             </div>
-        </div>`;
-    forecastHTML = forecastHTML + `</div>`;
-    forecastElement.innerHTML = forecastHTML;
-  });
-}
-
 function displayFahrenheitTemperature(event) {
   event.preventDefault();
 
@@ -165,4 +168,3 @@ let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsiusTemperature);
 
 search("Washington D.C.");
-displayForecast();
