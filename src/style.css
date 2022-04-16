@@ -97,24 +97,23 @@ a:hover {
 
 .weather-forecast {
   margin-top: -80px;
-}
-
-.weather-forecast-date {
-  text-align: center;
+  tex-align: center;
 }
 
 .weather-forecast-temp-max {
   font-size: 15px;
-  left: 40px;
 }
 
 .weather-forecast-temp-min {
   opacity: 0.6;
   font-size: 15px;
-  left: 40px;
 }
 
 #forecast-icon {
   position: relative;
-  left: 18px;
+  left: 5px;
+}
+
+#sun-hum-wind {
+  text-align: center;
 }
